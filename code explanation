@@ -1,0 +1,37 @@
+The provided code is a Python script for credit card fraud detection using a Logistic Regression model. Here's a step-by-step explanation of what the code does:
+
+1. Imports the necessary libraries:
+   - `pandas`: For data manipulation and analysis.
+   - `train_test_split` from `sklearn.model_selection`: To split the dataset into training and testing sets.
+   - `LogisticRegression` from `sklearn.linear_model`: To create and train a Logistic Regression model.
+   - `accuracy_score` from `sklearn.metrics`: To calculate the accuracy score for the model.
+
+2. Loads the credit card dataset from a CSV file named 'creditcard.csv' into a Pandas DataFrame called `credit_card_data`.
+
+3. Displays the distribution of legitimate transactions (Class=0) and fraudulent transactions (Class=1) in the dataset using `value_counts()`.
+
+4. Separates the data into two DataFrames: one for legitimate transactions (`legit`) and one for fraudulent transactions (`fraud`).
+
+5. Displays the shape (number of rows and columns) of the `legit` and `fraud` DataFrames.
+
+6. Displays statistical measures of the 'Amount' column for both legitimate and fraudulent transactions using `describe()`.
+
+7. Compares the mean values for each feature between legitimate and fraudulent transactions by grouping the data based on the 'Class' column and using `mean()`.
+
+8. Samples a subset of legitimate transactions (492 samples) to balance the dataset with fraudulent transactions and creates a new dataset called `new_dataset` using `pd.concat()`.
+
+9. Displays the distribution of the 'Class' column in the `new_dataset` to verify that the dataset is now balanced.
+
+10. Separates the 'Class' column from the rest of the features for prediction and evaluation, resulting in the feature data `X` and the target data `Y`.
+
+11. Splits the data into training and testing sets, using 80% of the data for training and 20% for testing. The `stratify` parameter ensures that the class distribution is balanced in both sets, and the `random_state` parameter is set to 2 for reproducibility.
+
+12. Creates a Logistic Regression model.
+
+13. Trains the model on the training data.
+
+14. Calculates the accuracy score of the model on both the training and test data.
+
+15. Prints the accuracy on the training data and the accuracy score on the test data to evaluate the model's performance.
+
+The script focuses on handling imbalanced data (fraudulent transactions are typically much fewer than legitimate transactions) by sampling a subset of legitimate transactions to balance the dataset. It then builds and evaluates a Logistic Regression model for credit card fraud detection. Keep in mind that accuracy may not be the best metric for imbalanced datasets, and other evaluation metrics like precision, recall, or F1-score should be considered, especially for fraud detection tasks.
